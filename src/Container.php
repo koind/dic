@@ -30,7 +30,7 @@ class Container
      * @param string|callable $value
      * @throws \InvalidArgumentException
      */
-    public function set(string $name, $value)
+    public function set(string $name, $value): void
     {
         $this->doesItFunctionOrString($value);
 
@@ -52,7 +52,7 @@ class Container
      * @param string|callable $value
      * @throws \InvalidArgumentException
      */
-    public function setShared(string $name, $value)
+    public function setShared(string $name, $value): void
     {
         $this->doesItFunctionOrString($value);
 
@@ -72,7 +72,7 @@ class Container
      * @throws \ReflectionException
      * @throws \Exception
      */
-    public function get(string $name)
+    public function get(string $name): object
     {
         if (isset($this->shared[$name])) {
             return $this->shared[$name];
@@ -89,6 +89,7 @@ class Container
 
             if (($construct = $reflection->getConstructor()) !== null) {
                 foreach ($construct->getParameters() as $param) {
+                    var_dump($param->getClass());
                     $paramClass     = $param->getClass();
                     $arguments[]    = $paramClass ? $this->get($paramClass->getName()) : null;
                 }
