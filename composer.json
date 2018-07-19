@@ -1,0 +1,24 @@
+{
+  "name": "koind/dic",
+  "description": "A very simple and convenient lib for working with Dependency Injection Container for PHP.",
+  "type": "project",
+  "require": {
+    "php": "^7.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Damir Assilhan",
+      "email": "krosava_15d@mail.ru"
+    }
+  ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "Koind\\": "src"
+    }
+  }
+}
