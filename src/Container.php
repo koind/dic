@@ -89,7 +89,6 @@ class Container
 
             if (($construct = $reflection->getConstructor()) !== null) {
                 foreach ($construct->getParameters() as $param) {
-                    var_dump($param->getClass());
                     $paramClass     = $param->getClass();
                     $arguments[]    = $paramClass ? $this->get($paramClass->getName()) : null;
                 }
