@@ -81,6 +81,9 @@ class Container
         if (array_key_exists($name, $this->definitions)) {
             $value  = $this->definitions[$name]['value'];
             $shared = $this->definitions[$name]['shared'];
+        } else {
+            $value  = $name;
+            $shared = false;
         }
 
         if (is_string($value)) {

@@ -41,9 +41,12 @@ class ContainerTest extends TestCase
 
     public function testSetSharedAuth()
     {
+        $this->container->set('Koind\Fortest\DataInterface', 'Koind\Fortest\Data');
+        $this->container->set('Koind\Fortest\SessionStorage', function (Container $container) {
+            return new SessionStorage('auth');
+        });
         $this->container->setShared('auth', 'Koind\Fortest\Auth');
         $auth = $this->container->get('auth');
-        var_dump($auth);
         $this->assertEquals(true, $auth->login('ivan', 'pass123'));
     }
 }
